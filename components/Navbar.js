@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "react-scroll/modules/components/Link";
 
-const Navbar = () => {
+const Navbar = ({ authenticatedState }) => {
 
   const router = useRouter();
 
@@ -29,13 +30,18 @@ const Navbar = () => {
         </div>
         <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
           <ul class="flex flex-col lg:flex-row list-none ml-auto">
+          <button onClick={() => router.push('/profile')} >Profile</button>
+            {
+              authenticatedState === 'not-authenticated' && (<li class="nav-item">
+                <Link href="/login" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
+                  <i class="text-lg text-white " /><span class="ml-2">Sign In</span>
+                </Link>
+              </li>)
+            }
+            <Link href="/pretected">
+            <i class="text-lg text-white " /><span class="ml-2">protected</span>
 
-            <li class="nav-item">
-              <a class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" href="/login">
-                <i class="text-lg text-white " /><span class="ml-2">login</span>
-                <p className="p-2">//</p>
-              </a>
-            </li>
+            </Link>
           </ul>
         </div>
       </div>

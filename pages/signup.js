@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from '../components/Navbar'
 import Head from 'next/head'
 import { useRouter }from 'next/router'
 
@@ -41,7 +40,7 @@ export default function Signup() {
                 <title>Async Chat / SIGNUP</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
+          
             <div class="flex flex-col h-screen bg-gradient-to-b from-[#063970] to-blue-200">
                 <div class="grid place-items-center mx-2 my-20 sm:my-auto" x-data="{ showPass: true }">
                     <div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12
