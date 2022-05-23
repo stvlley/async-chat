@@ -20,7 +20,7 @@ const Home = () => {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
-          <a className="text-green-400" href="https://nextjs.org">
+          <a className="text-green-200" href="https://nextjs.org">
             Async Chat
           </a>
         </h1>
@@ -50,7 +50,7 @@ const Home = () => {
 
           <a
             href="login"
-            className="bg-white mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
+            className="bg-green-400 text-white mt-6 w-96 rounded-xl border:bg-green-400 p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold">Log In &rarr;</h3>
             <p className="mt-4 text-xl">
