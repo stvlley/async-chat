@@ -1,16 +1,22 @@
 
 import Head from 'next/head'
 import Image from 'next/image'
-import Navbar from './components/Navbar'
+import Navbar from '../components/Navbar'
+
 
 const Home = () => {
+
+ 
+ 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div >
       <Head>
         <title>Async Chat</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
+      <div className="flex min-h-screen flex-col items-center justify-center py-2">
+      
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
@@ -33,7 +39,7 @@ const Home = () => {
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a
-            href="https://nextjs.org/docs"
+            href="/signup"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold">Sign Up &rarr;</h3>
@@ -43,7 +49,7 @@ const Home = () => {
           </a>
 
           <a
-            href="https://nextjs.org/learn"
+            href="login"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
             <h3 className="text-2xl font-bold">Log In &rarr;</h3>
@@ -78,8 +84,10 @@ const Home = () => {
           2022
         </a>
       </footer>
+      </div>
     </div>
   )
 }
 
 export default Home
+
