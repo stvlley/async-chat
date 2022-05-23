@@ -5,34 +5,65 @@ import Navbar from '../components/Navbar'
 
 export default function Login() {
 
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
 
 
     return (
-        
+
         <div>
             <Navbar />
-            <div className="flex min-h-screen  items-center justify-center py-2">
-            <form className="container">
-                <div class="relative z-0 w-full mb-6 group">
-                    <input type="email" name="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+            <div class="flex flex-col h-screen bg-gradient-to-b from-[#063970] to-blue-200">
+                <div class="grid place-items-center mx-2 my-20 sm:my-auto" x-data="{ showPass: true }">
+                    <div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12
+                px-6 py-10 sm:px-10 sm:py-6
+                bg-white rounded-lg shadow-md lg:shadow-lg">
+                        <div class="text-center mb-4">
+                            <h6 class="font-semibold text-[#063970] text-xl">Login</h6>
+                        </div>
+                        <form class="space-y-5" method="POST">
+
+                            <div>
+                                <label>Username</label>
+                        
+                                <input id="username" type="text" 
+                                required value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                placeholder="username..."
+                                class="block w-full py-3 px-3 mt-2
+                                text-gray-800 appearance-none
+                                border-2 border-gray-100
+                                focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
+                            </div>
+
+                            <div>
+                                <label>Password</label>
+
+                                <input id="password" type="text" 
+                                required value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="password..."
+                                class="block w-full py-3 px-3 mt-2
+                                text-gray-800 appearance-none
+                                border-2 border-gray-100
+                                focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
+                            </div>
+
+                            
+                            {/* button */}
+                            <button type="submit" class="w-full py-3 mt-10 bg-[#063970] rounded-md
+                        font-medium text-white uppercase
+                        focus:outline-none hover:shadow-none">
+                                Login
+                            </button>
+                            <p>{username}</p>
+                            <p>{password}</p>
+                        </form>
+                    </div>
                 </div>
-                <div class="relative z-0 w-full mb-6 group">
-                    <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
-                </div>
-                
-              
-                
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </form>
-        </div>
-        </div>
+            </div>
+        </div >
     )
 }
 

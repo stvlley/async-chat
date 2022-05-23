@@ -15,7 +15,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className="flex min-h-screen flex-col items-center justify-center py-2">
+      <div className="bg-gradient-to-b from-[#063970] to-blue-200 flex min-h-screen flex-col items-center justify-center py-2">
       
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
