@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "react-scroll/modules/components/Link";
+import { createClient } from "@supabase/supabase-js";
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtyZXNvd3hsZGNnZ21kcmdmbnJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTMyNTU1NDgsImV4cCI6MTk2ODgzMTU0OH0.xDMsnNa15JKyQKPl74XtVwhlW-1ZfwJQqOrrUBW4fng'
+const SUPABASE_URL = "https://kresowxldcggmdrgfnro.supabase.co"
+
+
 
 const Navbar = ({ authenticatedState }) => {
 
@@ -11,7 +16,11 @@ const Navbar = ({ authenticatedState }) => {
     e.preventDefault()
     router.push('signup')
   }
-
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+  async function logout() {
+      const { error } = await supabase.auth.signOut()
+  }
+ 
 
   return (
     <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-green-500 mb-3">
@@ -30,18 +39,31 @@ const Navbar = ({ authenticatedState }) => {
         </div>
         <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
           <ul class="flex flex-col lg:flex-row list-none ml-auto">
-          <button onClick={() => router.push('/profile')} >Profile</button>
             {
-              authenticatedState === 'not-authenticated' && (<li class="nav-item">
+              authenticatedState === 'not-authenticated' && (
+                <li class="nav-item">
                 <Link href="/login" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
                   <i class="text-lg text-white " /><span class="ml-2">Sign In</span>
                 </Link>
               </li>)
             }
-            <Link href="/pretected">
-            <i class="text-lg text-white " /><span class="ml-2">protected</span>
 
-            </Link>
+            {
+              authenticatedState === 'authenticated' && (<li class="nav-item">
+                <Link href="/login" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
+                  <i class="text-lg text-white " /><span class="ml-2">Profile</span>
+                </Link>
+              </li>)
+            }
+            {
+              authenticatedState === 'authenticated' && (<li class="nav-item">
+                <Link  onClick={logout} href="/" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
+                  <i class="text-lg text-white " /><span class="ml-2">Sign Out</span>
+                </Link>
+              </li>)
+            }
+
+
           </ul>
         </div>
       </div>

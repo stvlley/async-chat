@@ -18,8 +18,11 @@ function profile() {
             router.push('/login')
         } else {
             setProfile(profileData)
+            
         }
     }
+
+    console.log(profile)
 
     async function signOut() {
         await supabase.auth.signOut()
@@ -29,7 +32,8 @@ function profile() {
 
     return (
         <div className='m-auto'>
-            <h2>Hello, {profile.name}</h2>
+            <h2>Hello, {profile.email}</h2>
+            <p>User ID: {profile.id}</p>
             <p>User ID: {profile.id}</p>
             <button onClick={signOut}>Sign Out</button>
         </div>
