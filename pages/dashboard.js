@@ -11,7 +11,7 @@ export default function dashboard() {
             </Head>
             <Navbar />
             <div className="bg-gradient-to-b from-[#063970] to-blue-200 flex min-h-screen flex-col items-center justify-center py-2">
-
+            <h1>Dashboard</h1>
             </div>
         </div>
     )

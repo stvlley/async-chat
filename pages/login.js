@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Navbar from '../components/Navbar'
 import Head from 'next/head'
+import { useRouter }from 'next/router'
+
 
 
 export default function Login() {
 
+    const router = useRouter();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isPending, setIsPending] = useState(false)
@@ -24,6 +27,7 @@ export default function Login() {
         }).then(() => {
             console.log('user added')
             setIsPending(false)
+            router.push('/dashboard')
         })
 
     }
