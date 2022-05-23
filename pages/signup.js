@@ -1,14 +1,38 @@
 import React, { useState } from "react";
 import Navbar from '../components/Navbar'
 import Head from 'next/head'
+import { useRouter }from 'next/router'
 
 
 export default function Signup() {
 
+
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [isPending, setIsPending] = useState(false)
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const user = {
+            email,
+            username,
+            password,
+        }
+
+        setIsPending(true)
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user)
+        }).then(() => {
+            console.log('user added')
+            setIsPending(false)
+            router.push('/dashboard')
+        })
+
+    }
 
 
     return (
@@ -28,20 +52,20 @@ export default function Signup() {
                             <h6 class="font-semibold text-[#063970] text-xl">Login</h6>
                         </div>
                         <form class="space-y-5" method="POST">
-{/* email */}
+                            {/* email */}
                             <div>
                                 <label>Email</label>
 
                                 <input id="email" type="text"
                                     required value={email}
-                                    onChange={(e) => email(e.target.value)}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     placeholder="email..."
                                     class="block w-full py-3 px-3 mt-2
                                 text-gray-800 appearance-none
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
                             </div>
-{/* username */}
+                            {/* username */}
                             <div>
                                 <label>Username</label>
 
@@ -54,7 +78,7 @@ export default function Signup() {
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
                             </div>
-{/* password */}
+                            {/* password */}
                             <div>
                                 <label>Password</label>
 
@@ -67,11 +91,11 @@ export default function Signup() {
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
                             </div>
-{/* confirm password */}
+                            {/* confirm password */}
                             <div>
                                 <label>Confirm Password</label>
 
-                                <input id="password" type="text"
+                                <input id="confirm_password" type="text"
                                     required value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     placeholder="confirm password..."
@@ -83,11 +107,18 @@ export default function Signup() {
 
 
                             {/* button */}
-                            <button type="submit" class="w-full py-3 mt-10 bg-[#063970] rounded-md
+                            {!isPending && <button 
+                            onClick={handleSubmit}
+                            type="submit" class="w-full py-3 mt-10 bg-[#063970] rounded-md
                         font-medium text-white uppercase
                         focus:outline-none hover:shadow-none">
                                 Signup
-                            </button>
+                            </button>}
+                            {isPending && <button type="submit" class="w-full py-3 mt-10 bg-[#063970] rounded-md
+                        font-medium text-white uppercase
+                        focus:outline-none hover:shadow-none">
+                                LOADINg
+                            </button>}
                             <p>{username}</p>
                             <p>{password}</p>
                         </form>

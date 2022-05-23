@@ -6,7 +6,8 @@ import Navbar from '../components/Navbar'
 
 const Home = () => {
 
- 
+  
+
  
   return (
     <div >
@@ -20,7 +21,7 @@ const Home = () => {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
-          <a className="text-green-200" href="https://nextjs.org">
+          <a className="border:bg-green-200 text-green-200" href="https://nextjs.org">
             Async Chat
           </a>
         </h1>
