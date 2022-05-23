@@ -42,7 +42,7 @@ const Navbar = ({ authenticatedState }) => {
             {
               authenticatedState === 'not-authenticated' && (
                 <li class="nav-item">
-                <Link href="/login" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
+                <Link to="/login" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
                   <i class="text-lg text-white " /><span class="ml-2">Sign In</span>
                 </Link>
               </li>)
@@ -50,7 +50,7 @@ const Navbar = ({ authenticatedState }) => {
 
             {
               authenticatedState === 'authenticated' && (<li class="nav-item">
-                <Link href="/login" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
+                <Link to="/profile" class="p-2 flex items-center text-xs uppercase font-bold  text-white hover:opacity-75" >
                   <i class="text-lg text-white " /><span class="ml-2">Profile</span>
                 </Link>
               </li>)

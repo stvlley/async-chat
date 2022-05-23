@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import { useState, useEffect} from 'react'
-import Link from 'next/link'
 import { supabase } from '../client'
 import { useRouter } from 'next/router'
 import Navbar from '../components/Navbar'
