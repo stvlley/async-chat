@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from '../components/Navbar'
-
+import Head from 'next/head'
 
 
 export default function Login() {
@@ -13,6 +13,10 @@ export default function Login() {
     return (
 
         <div>
+            <Head>
+                <title>Async Chat / LOGIN</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Navbar />
             <div class="flex flex-col h-screen bg-gradient-to-b from-[#063970] to-blue-200">
                 <div class="grid place-items-center mx-2 my-20 sm:my-auto" x-data="{ showPass: true }">
@@ -26,12 +30,12 @@ export default function Login() {
 
                             <div>
                                 <label>Username</label>
-                        
-                                <input id="username" type="text" 
-                                required value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                placeholder="username..."
-                                class="block w-full py-3 px-3 mt-2
+
+                                <input id="username" type="text"
+                                    required value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    placeholder="username..."
+                                    class="block w-full py-3 px-3 mt-2
                                 text-gray-800 appearance-none
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
@@ -40,17 +44,17 @@ export default function Login() {
                             <div>
                                 <label>Password</label>
 
-                                <input id="password" type="text" 
-                                required value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="password..."
-                                class="block w-full py-3 px-3 mt-2
+                                <input id="password" type="text"
+                                    required value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="password..."
+                                    class="block w-full py-3 px-3 mt-2
                                 text-gray-800 appearance-none
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
                             </div>
 
-                            
+
                             {/* button */}
                             <button type="submit" class="w-full py-3 mt-10 bg-[#063970] rounded-md
                         font-medium text-white uppercase
