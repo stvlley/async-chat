@@ -5,6 +5,7 @@ import Head from 'next/head'
 
 export default function Signup() {
 
+    const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,7 +15,7 @@ export default function Signup() {
 
         <div>
             <Head>
-                <title>Async Chat / LOGIN</title>
+                <title>Async Chat / SIGNUP</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
@@ -27,7 +28,20 @@ export default function Signup() {
                             <h6 class="font-semibold text-[#063970] text-xl">Login</h6>
                         </div>
                         <form class="space-y-5" method="POST">
+{/* email */}
+                            <div>
+                                <label>Email</label>
 
+                                <input id="email" type="text"
+                                    required value={email}
+                                    onChange={(e) => email(e.target.value)}
+                                    placeholder="email..."
+                                    class="block w-full py-3 px-3 mt-2
+                                text-gray-800 appearance-none
+                                border-2 border-gray-100
+                                focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
+                            </div>
+{/* username */}
                             <div>
                                 <label>Username</label>
 
@@ -40,7 +54,7 @@ export default function Signup() {
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
                             </div>
-
+{/* password */}
                             <div>
                                 <label>Password</label>
 
@@ -53,13 +67,26 @@ export default function Signup() {
                                 border-2 border-gray-100
                                 focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
                             </div>
+{/* confirm password */}
+                            <div>
+                                <label>Confirm Password</label>
+
+                                <input id="password" type="text"
+                                    required value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="confirm password..."
+                                    class="block w-full py-3 px-3 mt-2
+                                text-gray-800 appearance-none
+                                border-2 border-gray-100
+                                focus:text-gray-500 focus:outline-none focus:border-gray-200 rounded-md" />
+                            </div>
 
 
                             {/* button */}
                             <button type="submit" class="w-full py-3 mt-10 bg-[#063970] rounded-md
                         font-medium text-white uppercase
                         focus:outline-none hover:shadow-none">
-                                Login
+                                Signup
                             </button>
                             <p>{username}</p>
                             <p>{password}</p>
